@@ -1,16 +1,29 @@
 import pandas as pd
 
+FEATURES = [
+    "Open",
+    "High",
+    "Low",
+    "Volume",
+    "Day",
+    "Month",
+    "Year"
+]
+
 def predict_future_price(model, latest_row):
 
-    input_df = pd.DataFrame({
-        "Open": [latest_row["Open"]],
-        "High": [latest_row["High"]],
-        "Low": [latest_row["Low"]],
-        "Volume": [latest_row["Volume"]],
-        "Day": [latest_row["Day"]],
-        "Month": [latest_row["Month"]],
-        "Year": [latest_row["Year"]]
-    })
+    input_df = pd.DataFrame(
+        [[
+            float(latest_row["Open"]),
+            float(latest_row["High"]),
+            float(latest_row["Low"]),
+            float(latest_row["Volume"]),
+            int(latest_row["Day"]),
+            int(latest_row["Month"]),
+            int(latest_row["Year"])
+        ]],
+        columns=FEATURES
+    )
 
     prediction = model.predict(input_df)
 
