@@ -1,7 +1,7 @@
 from sklearn.metrics import mean_absolute_error, r2_score
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
-import joblib
+
 
 def train_model(df):
 
@@ -34,7 +34,6 @@ def train_model(df):
     mae = mean_absolute_error(y_test,prediction)
     r2s = r2_score(y_test,prediction)
 
-    joblib.dump(model, "models/stock_model.pkl")
 
     return model,mae,r2s
 
