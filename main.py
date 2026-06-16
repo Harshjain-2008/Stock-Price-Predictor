@@ -125,7 +125,7 @@ if run_button:
 
         fig , ax = plt.subplots(figsize=(10,5))
         ax.plot(df["Date"], df["Close"])
-        ax.set_tittle(f"{ticker} Stock Price")
+        ax.set_title(f"{ticker} Stock Price")
         ax.set_xlabel("Data")
         ax.set_ylabel("Price")
 
