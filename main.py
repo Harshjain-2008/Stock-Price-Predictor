@@ -1,5 +1,5 @@
 import streamlit as st
-import plotly.express as px
+import matplotlib.pyplot as plt
 
 from datetime import date
 
@@ -123,15 +123,11 @@ if run_button:
 
         st.subheader("Stock Closing Price ")
 
-        fig = px.line(
-            df,
-            X = "Date",
-            y = "Close",
-            title=(f"{ticker} Stock price History")
+        fig , ax = plt.subplot()
+        ax.plot(df["Date"], df["Close"])
+        ax.set_tittle(f"{ticker} Stock Price")
 
-        )
-
-        st.plotly_chart(fig, use_container_width=True)
+        st.pyplot(fig)
 
         # DATA PREVIEW 
 
